@@ -18,6 +18,8 @@ module.exports = function (babel) {
 
               if(arr.length){
                 path.replaceWithMultiple(binaryExpressionMulti('+',arr));            
+              }else{
+                path.node.value = text
               }
             }
           }
