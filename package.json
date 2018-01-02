@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-jsx-inject-mi2",
   "version": "1.0.10",
-  "description": "Babel plugin to inject JSX or html template from external file.",
+  "description": "Babel plugin to inject JSX or HTML template from external file.",
   "main": "index.js",
   "unpkg": "dist/babel-plugin-jsx-inject-mi2.min.js",
   "files": [
