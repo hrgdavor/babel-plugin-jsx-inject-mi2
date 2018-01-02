@@ -60,7 +60,6 @@ module.exports = function (babel) {
         expr = t.stringLiteral(text.substring(offset, ex.index)); // text
         arr.push(expr);
       }
-      console.log('ex', ex);
       expr = t.callExpression(
         t.identifier(opts.func || 't'), 
         [t.stringLiteral(ex[1])] // from regex
