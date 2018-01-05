@@ -13,7 +13,7 @@
     "test": "karma start --no-auto-watch --single-run true",
     "dev-test": "karma start",
     "build": "babel index.js  -o dist/babel-plugin-jsx-inject-mi2.min.js",
-    "prepublish": "npm run build"
+    "prepublish": "npm test && npm run build"
   },
   "repository": {
     "type": "git",

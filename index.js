@@ -12,7 +12,7 @@ module.exports = function (babel) {
             var idx = filename.lastIndexOf('.js');
             if(idx != -1){
               var templatename = filename.substring(0,idx)+'.html';
-              if(fs.existsSync(templatename)) throw new Error('template not found '+templatename);
+              if(!fs.existsSync(templatename)) throw new Error('template not found '+templatename);
               var text = fs.readFileSync(templatename,"utf8");
               var arr = splitText(text, state.file.opts);
 
