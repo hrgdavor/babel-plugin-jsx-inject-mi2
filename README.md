@@ -55,7 +55,7 @@ the `sample.tpl` will be injected in the `sample.js` resulting in something like
 it is good to know that for purpose of catching a return statement, an arrow expression like:
 
 ```js
-applyHtml( h=>)<template/> );
+applyHtml( h=><template/> );
 ```
 
 is pretty much the same (except of arrow expression scoping) as:
