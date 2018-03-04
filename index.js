@@ -27,7 +27,7 @@ module.exports = function (babel) {
         JSXElement: {
         exit (path, state) {
           var name = path.node.openingElement.name.name;
-          if(name == 'template' && t.isReturnStatement(path.parentPath)){
+          if(name == 'template' && t.isReturnStatement(path.parentPath) && path.node.openingElement.selfClosing){
             var filename = state.file.opts.filename;
             var idx = filename.lastIndexOf('.js');
             var srcOpts = state.file.opts;

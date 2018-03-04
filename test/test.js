@@ -22,6 +22,13 @@ describe('babel-plugin-jsx-mi2', () => {
     expect(vnode.attr.city).toEqual('City 1')
   })
 
+  it('jsx no inject', () => {
+    const vnode = render(h => <template><b>aaa</b></template>)
+    
+    expect(vnode.tag).toEqual('template')
+    expect(vnode.children[0].tag).toEqual('b')
+  })
+
   it('template inject', () => {
     const template = '<-TEMPLATE->';
     
