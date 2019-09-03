@@ -38,7 +38,11 @@ module.exports = function (babel) {
               var transformOpts = {parserOpts:{sourceFilename: templatename}, code:false};
               ['presets','plugins'].map(function(p){ transformOpts[p] = srcOpts[p]; });
 
-              var tpl = babel.transformFileSync(templatename, transformOpts);
+              var tpl;
+              if(srcOpts.parserOpts.templateContent)
+                tpl = babel.transform(srcOpts.parserOpts.templateContent, transformOpts);
+              else
+                tpl = babel.transformFileSync(templatename, transformOpts);
 
               var body = tpl.ast.program.body;
               body[body.length-1] = t.returnStatement(body[body.length-1].expression);
