@@ -46,7 +46,7 @@ module.exports = function (babel) {
                   tpl = babel.transformFileSync(templatename, transformOpts);
                 
                 }else{
-                  console.error("template directive found in filename but template file is missing "+templatename);
+                  console.error("ERROR: template directive found in "+filename+" but template file is missing "+templatename);
                 }
               }
 
