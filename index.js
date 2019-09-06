@@ -42,9 +42,10 @@ module.exports = function (babel) {
               if(srcOpts.parserOpts.templateContent)
                 tpl = babel.transform(srcOpts.parserOpts.templateContent, transformOpts);
               else{
-                fs.existsSync(templatename)
+                if(fs.existsSync(templatename)){
                   tpl = babel.transformFileSync(templatename, transformOpts);
-                else{
+                
+                }else{
                   console.error("template directive found in filename but template file is missing "+templatename);
                 }
               }
