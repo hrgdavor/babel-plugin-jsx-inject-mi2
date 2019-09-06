@@ -41,12 +41,19 @@ module.exports = function (babel) {
               var tpl;
               if(srcOpts.parserOpts.templateContent)
                 tpl = babel.transform(srcOpts.parserOpts.templateContent, transformOpts);
-              else
-                tpl = babel.transformFileSync(templatename, transformOpts);
+              else{
+                fs.existsSync(templatename)
+                  tpl = babel.transformFileSync(templatename, transformOpts);
+                else{
+                  console.error("template directive found in filename but template file is missing "+templatename);
+                }
+              }
 
-              var body = tpl.ast.program.body;
-              body[body.length-1] = t.returnStatement(body[body.length-1].expression);
-              path.parentPath.replaceWithMultiple(body);            
+              if(tpl){              
+                var body = tpl.ast.program.body;
+                body[body.length-1] = t.returnStatement(body[body.length-1].expression);
+                path.parentPath.replaceWithMultiple(body);            
+              }
             }
           }
         }
